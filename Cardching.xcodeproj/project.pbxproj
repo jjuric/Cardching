@@ -14,6 +14,22 @@
 		77AA5B1623227073006BAF70 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 77AA5B1423227073006BAF70 /* LaunchScreen.storyboard */; };
 		77AA5B2123227073006BAF70 /* CardchingTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77AA5B2023227073006BAF70 /* CardchingTests.swift */; };
 		77AA5B2C23227073006BAF70 /* CardchingUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77AA5B2B23227073006BAF70 /* CardchingUITests.swift */; };
+		77AA5B3A232277D0006BAF70 /* fonts in Resources */ = {isa = PBXBuildFile; fileRef = 77AA5B39232277D0006BAF70 /* fonts */; };
+		77AA5B4423227E64006BAF70 /* CustomFieldView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77AA5B4323227E64006BAF70 /* CustomFieldView.swift */; };
+		77AA5B47232282BA006BAF70 /* AnchorExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77AA5B46232282BA006BAF70 /* AnchorExtensions.swift */; };
+		77AA5B49232284E4006BAF70 /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77AA5B48232284E4006BAF70 /* Colors.swift */; };
+		77AA5B4B2322872B006BAF70 /* TextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77AA5B4A2322872B006BAF70 /* TextField.swift */; };
+		77CB54CA23228D0100AEEC94 /* OpenSans-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 77CB54BF23228D0000AEEC94 /* OpenSans-Regular.ttf */; };
+		77CB54CB23228D0100AEEC94 /* Quicksand-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 77CB54C023228D0000AEEC94 /* Quicksand-Regular.ttf */; };
+		77CB54CC23228D0100AEEC94 /* Roboto-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 77CB54C123228D0000AEEC94 /* Roboto-Regular.ttf */; };
+		77CB54CD23228D0100AEEC94 /* OpenSans-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 77CB54C223228D0000AEEC94 /* OpenSans-Bold.ttf */; };
+		77CB54CE23228D0100AEEC94 /* Roboto-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 77CB54C323228D0100AEEC94 /* Roboto-Light.ttf */; };
+		77CB54CF23228D0100AEEC94 /* Quicksand-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 77CB54C423228D0100AEEC94 /* Quicksand-Medium.ttf */; };
+		77CB54D023228D0100AEEC94 /* Roboto-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 77CB54C523228D0100AEEC94 /* Roboto-Bold.ttf */; };
+		77CB54D123228D0100AEEC94 /* Quicksand-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 77CB54C623228D0100AEEC94 /* Quicksand-Bold.ttf */; };
+		77CB54D223228D0100AEEC94 /* Roboto-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 77CB54C723228D0100AEEC94 /* Roboto-Medium.ttf */; };
+		77CB54D323228D0100AEEC94 /* Quicksand-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 77CB54C823228D0100AEEC94 /* Quicksand-Light.ttf */; };
+		77CB54D423228D0100AEEC94 /* OpenSans-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 77CB54C923228D0100AEEC94 /* OpenSans-Light.ttf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,6 +63,22 @@
 		77AA5B2723227073006BAF70 /* CardchingUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CardchingUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		77AA5B2B23227073006BAF70 /* CardchingUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardchingUITests.swift; sourceTree = "<group>"; };
 		77AA5B2D23227073006BAF70 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		77AA5B39232277D0006BAF70 /* fonts */ = {isa = PBXFileReference; lastKnownFileType = folder; path = fonts; sourceTree = "<group>"; };
+		77AA5B4323227E64006BAF70 /* CustomFieldView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomFieldView.swift; sourceTree = "<group>"; };
+		77AA5B46232282BA006BAF70 /* AnchorExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnchorExtensions.swift; sourceTree = "<group>"; };
+		77AA5B48232284E4006BAF70 /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
+		77AA5B4A2322872B006BAF70 /* TextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextField.swift; sourceTree = "<group>"; };
+		77CB54BF23228D0000AEEC94 /* OpenSans-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OpenSans-Regular.ttf"; sourceTree = "<group>"; };
+		77CB54C023228D0000AEEC94 /* Quicksand-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Quicksand-Regular.ttf"; sourceTree = "<group>"; };
+		77CB54C123228D0000AEEC94 /* Roboto-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Regular.ttf"; sourceTree = "<group>"; };
+		77CB54C223228D0000AEEC94 /* OpenSans-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OpenSans-Bold.ttf"; sourceTree = "<group>"; };
+		77CB54C323228D0100AEEC94 /* Roboto-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Light.ttf"; sourceTree = "<group>"; };
+		77CB54C423228D0100AEEC94 /* Quicksand-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Quicksand-Medium.ttf"; sourceTree = "<group>"; };
+		77CB54C523228D0100AEEC94 /* Roboto-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Bold.ttf"; sourceTree = "<group>"; };
+		77CB54C623228D0100AEEC94 /* Quicksand-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Quicksand-Bold.ttf"; sourceTree = "<group>"; };
+		77CB54C723228D0100AEEC94 /* Roboto-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Medium.ttf"; sourceTree = "<group>"; };
+		77CB54C823228D0100AEEC94 /* Quicksand-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Quicksand-Light.ttf"; sourceTree = "<group>"; };
+		77CB54C923228D0100AEEC94 /* OpenSans-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OpenSans-Light.ttf"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -97,12 +129,12 @@
 		77AA5B0A23227071006BAF70 /* Cardching */ = {
 			isa = PBXGroup;
 			children = (
-				77AA5B0B23227071006BAF70 /* AppDelegate.swift */,
-				77AA5B0D23227071006BAF70 /* ViewController.swift */,
-				77AA5B0F23227071006BAF70 /* Main.storyboard */,
-				77AA5B1223227073006BAF70 /* Assets.xcassets */,
+				77AA5B45232282A0006BAF70 /* Common */,
+				77AA5B4023227DF0006BAF70 /* App */,
+				77AA5B3E23227DBC006BAF70 /* UI */,
 				77AA5B1423227073006BAF70 /* LaunchScreen.storyboard */,
 				77AA5B1723227073006BAF70 /* Info.plist */,
+				77AA5B4123227E08006BAF70 /* Resources */,
 			);
 			path = Cardching;
 			sourceTree = "<group>";
@@ -123,6 +155,79 @@
 				77AA5B2D23227073006BAF70 /* Info.plist */,
 			);
 			path = CardchingUITests;
+			sourceTree = "<group>";
+		};
+		77AA5B3E23227DBC006BAF70 /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				77AA5B4223227E2D006BAF70 /* CustomField */,
+				77AA5B3F23227DD9006BAF70 /* Login Start */,
+			);
+			path = UI;
+			sourceTree = "<group>";
+		};
+		77AA5B3F23227DD9006BAF70 /* Login Start */ = {
+			isa = PBXGroup;
+			children = (
+				77AA5B0D23227071006BAF70 /* ViewController.swift */,
+				77AA5B0F23227071006BAF70 /* Main.storyboard */,
+			);
+			path = "Login Start";
+			sourceTree = "<group>";
+		};
+		77AA5B4023227DF0006BAF70 /* App */ = {
+			isa = PBXGroup;
+			children = (
+				77AA5B0B23227071006BAF70 /* AppDelegate.swift */,
+			);
+			path = App;
+			sourceTree = "<group>";
+		};
+		77AA5B4123227E08006BAF70 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				77AA5B1223227073006BAF70 /* Assets.xcassets */,
+				77CB54D523228D1500AEEC94 /* fonts */,
+				77AA5B39232277D0006BAF70 /* fonts */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		77AA5B4223227E2D006BAF70 /* CustomField */ = {
+			isa = PBXGroup;
+			children = (
+				77AA5B4323227E64006BAF70 /* CustomFieldView.swift */,
+			);
+			path = CustomField;
+			sourceTree = "<group>";
+		};
+		77AA5B45232282A0006BAF70 /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				77AA5B46232282BA006BAF70 /* AnchorExtensions.swift */,
+				77AA5B48232284E4006BAF70 /* Colors.swift */,
+				77AA5B4A2322872B006BAF70 /* TextField.swift */,
+			);
+			path = Common;
+			sourceTree = "<group>";
+		};
+		77CB54D523228D1500AEEC94 /* fonts */ = {
+			isa = PBXGroup;
+			children = (
+				77CB54C223228D0000AEEC94 /* OpenSans-Bold.ttf */,
+				77CB54C923228D0100AEEC94 /* OpenSans-Light.ttf */,
+				77CB54BF23228D0000AEEC94 /* OpenSans-Regular.ttf */,
+				77CB54C623228D0100AEEC94 /* Quicksand-Bold.ttf */,
+				77CB54C823228D0100AEEC94 /* Quicksand-Light.ttf */,
+				77CB54C423228D0100AEEC94 /* Quicksand-Medium.ttf */,
+				77CB54C023228D0000AEEC94 /* Quicksand-Regular.ttf */,
+				77CB54C523228D0100AEEC94 /* Roboto-Bold.ttf */,
+				77CB54C323228D0100AEEC94 /* Roboto-Light.ttf */,
+				77CB54C723228D0100AEEC94 /* Roboto-Medium.ttf */,
+				77CB54C123228D0000AEEC94 /* Roboto-Regular.ttf */,
+			);
+			name = fonts;
+			path = ../../fonts;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -229,9 +334,21 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				77CB54CA23228D0100AEEC94 /* OpenSans-Regular.ttf in Resources */,
+				77CB54CB23228D0100AEEC94 /* Quicksand-Regular.ttf in Resources */,
+				77CB54CC23228D0100AEEC94 /* Roboto-Regular.ttf in Resources */,
+				77CB54CD23228D0100AEEC94 /* OpenSans-Bold.ttf in Resources */,
+				77CB54CE23228D0100AEEC94 /* Roboto-Light.ttf in Resources */,
+				77CB54CF23228D0100AEEC94 /* Quicksand-Medium.ttf in Resources */,
+				77CB54D023228D0100AEEC94 /* Roboto-Bold.ttf in Resources */,
+				77CB54D123228D0100AEEC94 /* Quicksand-Bold.ttf in Resources */,
+				77CB54D223228D0100AEEC94 /* Roboto-Medium.ttf in Resources */,
+				77CB54D323228D0100AEEC94 /* Quicksand-Light.ttf in Resources */,
+				77CB54D423228D0100AEEC94 /* OpenSans-Light.ttf in Resources */,
 				77AA5B1623227073006BAF70 /* LaunchScreen.storyboard in Resources */,
 				77AA5B1323227073006BAF70 /* Assets.xcassets in Resources */,
 				77AA5B1123227071006BAF70 /* Main.storyboard in Resources */,
+				77AA5B3A232277D0006BAF70 /* fonts in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -256,8 +373,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				77AA5B47232282BA006BAF70 /* AnchorExtensions.swift in Sources */,
+				77AA5B49232284E4006BAF70 /* Colors.swift in Sources */,
 				77AA5B0E23227071006BAF70 /* ViewController.swift in Sources */,
+				77AA5B4B2322872B006BAF70 /* TextField.swift in Sources */,
 				77AA5B0C23227071006BAF70 /* AppDelegate.swift in Sources */,
+				77AA5B4423227E64006BAF70 /* CustomFieldView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
