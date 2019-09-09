@@ -102,7 +102,6 @@ extension CustomFieldView: UITextFieldDelegate {
         } else {
             textField.endEditing(true)
         }
-        onEndEditing?()
         return true
     }
     

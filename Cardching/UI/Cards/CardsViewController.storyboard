@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="Quicksand-Medium.ttf">
+            <string>Quicksand-Medium</string>
+        </array>
+    </customFonts>
+    <scenes>
+        <!--Cards View Controller-->
+        <scene sceneID="nzn-hC-MRJ">
+            <objects>
+                <viewController storyboardIdentifier="CardsViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="9NT-Os-ERH" customClass="CardsViewController" customModule="Cardching" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="q5u-q5-sEg">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="n8y-ff-xQ9">
+                                <rect key="frame" x="0.0" y="44" width="414" height="240"/>
+                                <subviews>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="cardPlaceholder" translatesAutoresizingMaskIntoConstraints="NO" id="Do1-kP-I2C">
+                                        <rect key="frame" x="147" y="21" width="120" height="120"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="120" id="MsZ-NN-QVx"/>
+                                            <constraint firstAttribute="width" constant="120" id="h6A-kr-2ba"/>
+                                        </constraints>
+                                    </imageView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Kartice" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Oy6-gE-nGZ">
+                                        <rect key="frame" x="173.5" y="181" width="67" height="25"/>
+                                        <fontDescription key="fontDescription" name="Quicksand-Medium" family="Quicksand Light" pointSize="20"/>
+                                        <color key="textColor" red="0.5593864918" green="0.58049052950000002" blue="0.7670487761" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstItem="Do1-kP-I2C" firstAttribute="centerX" secondItem="n8y-ff-xQ9" secondAttribute="centerX" id="4UI-gw-Of2"/>
+                                    <constraint firstItem="Oy6-gE-nGZ" firstAttribute="top" secondItem="Do1-kP-I2C" secondAttribute="bottom" constant="40" id="5su-6a-bez"/>
+                                    <constraint firstItem="Oy6-gE-nGZ" firstAttribute="centerX" secondItem="n8y-ff-xQ9" secondAttribute="centerX" id="RTs-Mi-aGY"/>
+                                    <constraint firstAttribute="height" constant="240" id="f32-0g-cDz"/>
+                                    <constraint firstItem="Do1-kP-I2C" firstAttribute="top" secondItem="n8y-ff-xQ9" secondAttribute="top" constant="21" id="qbz-Qb-O1b"/>
+                                </constraints>
+                            </view>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="bzg-wQ-4Dn">
+                                <rect key="frame" x="0.0" y="284" width="414" height="612"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="g4N-Da-tK8" firstAttribute="trailing" secondItem="n8y-ff-xQ9" secondAttribute="trailing" id="30Y-K7-BfP"/>
+                            <constraint firstItem="g4N-Da-tK8" firstAttribute="trailing" secondItem="bzg-wQ-4Dn" secondAttribute="trailing" id="3xQ-uk-beQ"/>
+                            <constraint firstItem="bzg-wQ-4Dn" firstAttribute="top" secondItem="n8y-ff-xQ9" secondAttribute="bottom" id="GGr-Ph-Jis"/>
+                            <constraint firstItem="n8y-ff-xQ9" firstAttribute="top" secondItem="g4N-Da-tK8" secondAttribute="top" id="Pq4-Jq-57q"/>
+                            <constraint firstAttribute="bottom" secondItem="bzg-wQ-4Dn" secondAttribute="bottom" id="PyU-kz-kfo"/>
+                            <constraint firstItem="n8y-ff-xQ9" firstAttribute="leading" secondItem="g4N-Da-tK8" secondAttribute="leading" id="Rvc-TY-s8c"/>
+                            <constraint firstItem="bzg-wQ-4Dn" firstAttribute="leading" secondItem="g4N-Da-tK8" secondAttribute="leading" id="dtH-qq-ddr"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="g4N-Da-tK8"/>
+                    </view>
+                    <connections>
+                        <outlet property="cardsTableView" destination="bzg-wQ-4Dn" id="s3L-xq-mxv"/>
+                        <outlet property="headerView" destination="n8y-ff-xQ9" id="89c-xa-KUY"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="rPf-c0-K8n" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="75" y="72"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="cardPlaceholder" width="120" height="120"/>
+    </resources>
+</document>

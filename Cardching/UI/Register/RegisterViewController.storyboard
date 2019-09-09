@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="Quicksand-Medium.ttf">
+            <string>Quicksand-Medium</string>
+        </array>
+    </customFonts>
+    <scenes>
+        <!--Register View Controller-->
+        <scene sceneID="64c-c1-GRW">
+            <objects>
+                <viewController storyboardIdentifier="RegisterViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="kkG-do-5tX" customClass="RegisterViewController" customModule="Cardching" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Kq4-wl-7fN">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" directionalLockEnabled="YES" showsHorizontalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="83N-c2-pEX">
+                                <rect key="frame" x="0.0" y="44" width="414" height="818"/>
+                                <subviews>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="loginLogo" translatesAutoresizingMaskIntoConstraints="NO" id="YIw-ij-Zry">
+                                        <rect key="frame" x="155" y="63" width="104" height="120"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="120" id="JUv-QI-URY"/>
+                                            <constraint firstAttribute="width" constant="104" id="cbF-2Y-zT5"/>
+                                        </constraints>
+                                    </imageView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Registracija" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eJH-tw-MoP">
+                                        <rect key="frame" x="151.5" y="223" width="111" height="25"/>
+                                        <fontDescription key="fontDescription" name="Quicksand-Medium" family="Quicksand Light" pointSize="20"/>
+                                        <color key="textColor" red="0.5593864918" green="0.58049052950000002" blue="0.7670487761" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="eJH-tw-MoP" firstAttribute="centerX" secondItem="83N-c2-pEX" secondAttribute="centerX" id="0Uc-eE-j3O"/>
+                                    <constraint firstItem="eJH-tw-MoP" firstAttribute="top" secondItem="YIw-ij-Zry" secondAttribute="bottom" constant="40" id="cGD-eo-3zJ"/>
+                                    <constraint firstItem="YIw-ij-Zry" firstAttribute="top" secondItem="83N-c2-pEX" secondAttribute="top" constant="63" id="fam-IU-CBJ"/>
+                                    <constraint firstItem="YIw-ij-Zry" firstAttribute="centerX" secondItem="83N-c2-pEX" secondAttribute="centerX" id="v9q-g8-Rgm"/>
+                                </constraints>
+                            </scrollView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="8Vh-rS-5Q7" firstAttribute="bottom" secondItem="83N-c2-pEX" secondAttribute="bottom" id="IyB-hG-BdE"/>
+                            <constraint firstItem="8Vh-rS-5Q7" firstAttribute="trailing" secondItem="83N-c2-pEX" secondAttribute="trailing" id="ctd-8z-WxF"/>
+                            <constraint firstItem="83N-c2-pEX" firstAttribute="leading" secondItem="8Vh-rS-5Q7" secondAttribute="leading" id="m5g-zF-k5X"/>
+                            <constraint firstItem="83N-c2-pEX" firstAttribute="top" secondItem="8Vh-rS-5Q7" secondAttribute="top" id="xjX-81-ew0"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="8Vh-rS-5Q7"/>
+                    </view>
+                    <connections>
+                        <outlet property="registerLabel" destination="eJH-tw-MoP" id="d5l-1I-EoO"/>
+                        <outlet property="scrollView" destination="83N-c2-pEX" id="Mzb-kK-aPz"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="yHq-cq-Xpg" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="97" y="86"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="loginLogo" width="106" height="121"/>
+    </resources>
+</document>

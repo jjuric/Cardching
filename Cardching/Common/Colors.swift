@@ -11,4 +11,5 @@ import UIKit
 extension UIColor {
     static let appPurple = UIColor(red: 143 / 255.0, green: 149 / 255.0, blue: 194 / 255.0, alpha: 1)
     static let formGray = UIColor(red: 90 / 255.0, green: 87 / 255.0, blue: 87 / 255.0, alpha: 1)
+    static let barcodeGray = UIColor(red: 149 / 255.0, green: 152 / 255.0, blue: 154 / 255.0, alpha: 1)
 }
