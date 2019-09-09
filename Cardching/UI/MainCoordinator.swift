@@ -15,8 +15,7 @@ class MainCoordinator: Coordinator {
     
     func start() -> UIViewController {
         if isUserLoggedIn {
-            // showCards()
-            return UIViewController()
+            return showCards()
         } else {
             return showLogin()
         }
@@ -33,7 +32,7 @@ class MainCoordinator: Coordinator {
             self?.showRegistration()
         }
         loginVM.onLoggedIn = { [weak self] in
-            self?.showCards()
+            let _ = self?.showCards()
         }
         
         navigationController.setViewControllers([loginVC], animated: false)
@@ -47,6 +46,10 @@ class MainCoordinator: Coordinator {
         
         registerVC.viewModel = registerVM
         
+        registerVM.onRegister = { [weak self] in
+            let _ = self?.showCards()
+        }
+        
         navigationController.pushViewController(registerVC, animated: true)
     }
     
@@ -58,7 +61,13 @@ class MainCoordinator: Coordinator {
         cardsVC.viewModel = cardsVM
         
         cardsVM.onShowBarcode = { [weak self] in
-            
+            // show barcode vc
+        }
+        cardsVM.onShowCardDetails = { [weak self] card in
+            // show card details vc
+        }
+        cardsVM.onAddNewCard = { [weak self] in
+            // show new card vc
         }
         
         navigationController.setViewControllers([cardsVC], animated: true)

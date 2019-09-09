@@ -11,12 +11,14 @@ import UIKit
 
 class LoginViewModel {
     
+    //MARK: - Callbacks
     var onShowRegistration: (() -> Void)?
     var onLoggedIn: (() -> Void)?
     var onErrorLogIn: (() -> Void)?
     
+    // MARK: - Methods
     func login(with email: String, password: String) {
-        
+        // Firebase login
     }
     
     func showRegistration() {

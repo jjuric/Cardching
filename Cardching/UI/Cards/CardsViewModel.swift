@@ -10,6 +10,7 @@ import Foundation
 import UIKit
 
 class CardsViewModel {
+    
     // MARK: - Variables
     struct Card {
         var name: String
@@ -32,10 +33,19 @@ class CardsViewModel {
     
     // MARK: - Callbacks
     var onShowBarcode: (() -> Void)?
+    var onShowCardDetails: ((Card) -> Void)?
+    var onAddNewCard: (() -> Void)?
     
-    
-    
+    // MARK: - Methods
     func showBarcode() {
         onShowBarcode?()
+    }
+    
+    func showCardDetails(for cardIndex: Int) {
+        onShowCardDetails?(cards[cardIndex])
+    }
+    
+    func addNewCard() {
+        onAddNewCard?()
     }
 }
