@@ -15,7 +15,21 @@ class NewCardViewController: UIViewController {
     
     var viewModel: NewCardViewModel!
     
-    lazy var iamgePicker: UIImagePickerController = {
+    lazy var datePicker: UIDatePicker = {
+       let picker = UIDatePicker()
+        picker.datePickerMode = .date
+        return picker
+    }()
+    lazy var pickerToolbar: UIToolbar = {
+       let toolbar = UIToolbar()
+        toolbar.sizeToFit()
+        let done = UIBarButtonItem(title: "Done", style: .plain, target: self, action: #selector(doneTapped))
+        let space = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil)
+        let cancel = UIBarButtonItem(title: "Cancel", style: .plain, target: self, action: #selector(cancelTapped))
+        toolbar.setItems([cancel, space, done], animated: false)
+        return toolbar
+    }()
+    lazy var imagePicker: UIImagePickerController = {
        let picker = UIImagePickerController()
         picker.delegate = self
         picker.allowsEditing = true
@@ -32,7 +46,8 @@ class NewCardViewController: UIViewController {
         let field = CustomFieldView()
         field.translatesAutoresizingMaskIntoConstraints = false
         field.configureFor(type: .expiration)
-        field.textField.inputView = UIDatePicker()
+        field.textField.inputAccessoryView = pickerToolbar
+        field.textField.inputView = datePicker
         view.addSubview(field)
         return field
     }()
@@ -65,12 +80,19 @@ class NewCardViewController: UIViewController {
         super.viewDidLoad()
         addCallbacks()
         setupConstraints()
+        style()
     }
     
     private func addCallbacks() {
         expirationField.onShowCalendar = {
             print("show calendaererearar")
         }
+    }
+    
+    private func style() {
+        cardImage.isUserInteractionEnabled = true
+        cardImage.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(addPicture)))
+        cardImage.layer.cornerRadius = cardImage.frame.width / 2
     }
     
     private func setupConstraints() {
@@ -89,6 +111,21 @@ class NewCardViewController: UIViewController {
             image = cardImage.image
         }
         viewModel.saveCard(name: name, barcode: barcode, image: image, expiration: expiration)
+    }
+    
+    @objc func addPicture() {
+        present(imagePicker, animated: true)
+    }
+    
+    @objc func doneTapped() {
+        let formatter = DateFormatter()
+        formatter.dateFormat = "dd/MM/yyyy"
+        expirationField.textField.text = formatter.string(from: datePicker.date)
+        expirationField.endEditing(true)
+    }
+    
+    @objc func cancelTapped() {
+        expirationField.endEditing(true)
     }
 }
 
