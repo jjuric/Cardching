@@ -21,10 +21,12 @@
 		7732770823268D9300ED8476 /* BarcodeViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7732770723268D9300ED8476 /* BarcodeViewController.storyboard */; };
 		7732770B23268E5200ED8476 /* NewCardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7732770A23268E5200ED8476 /* NewCardViewController.swift */; };
 		7732770D23268E5B00ED8476 /* NewCardViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7732770C23268E5B00ED8476 /* NewCardViewController.storyboard */; };
+		7732770F23279BAE00ED8476 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7732770E23279BAE00ED8476 /* Assets.xcassets */; };
+		7732771123279CDE00ED8476 /* DetailCardViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7732771023279CDE00ED8476 /* DetailCardViewModel.swift */; };
+		773277132327B5E700ED8476 /* NewCardViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 773277122327B5E700ED8476 /* NewCardViewModel.swift */; };
 		77AA5B0C23227071006BAF70 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77AA5B0B23227071006BAF70 /* AppDelegate.swift */; };
 		77AA5B0E23227071006BAF70 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77AA5B0D23227071006BAF70 /* LoginViewController.swift */; };
 		77AA5B1123227071006BAF70 /* LoginViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 77AA5B0F23227071006BAF70 /* LoginViewController.storyboard */; };
-		77AA5B1323227073006BAF70 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 77AA5B1223227073006BAF70 /* Assets.xcassets */; };
 		77AA5B1623227073006BAF70 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 77AA5B1423227073006BAF70 /* LaunchScreen.storyboard */; };
 		77AA5B2123227073006BAF70 /* CardchingTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77AA5B2023227073006BAF70 /* CardchingTests.swift */; };
 		77AA5B2C23227073006BAF70 /* CardchingUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77AA5B2B23227073006BAF70 /* CardchingUITests.swift */; };
@@ -80,11 +82,13 @@
 		7732770723268D9300ED8476 /* BarcodeViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = BarcodeViewController.storyboard; sourceTree = "<group>"; };
 		7732770A23268E5200ED8476 /* NewCardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewCardViewController.swift; sourceTree = "<group>"; };
 		7732770C23268E5B00ED8476 /* NewCardViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = NewCardViewController.storyboard; sourceTree = "<group>"; };
+		7732770E23279BAE00ED8476 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		7732771023279CDE00ED8476 /* DetailCardViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailCardViewModel.swift; sourceTree = "<group>"; };
+		773277122327B5E700ED8476 /* NewCardViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewCardViewModel.swift; sourceTree = "<group>"; };
 		77AA5B0823227071006BAF70 /* Cardching.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Cardching.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		77AA5B0B23227071006BAF70 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		77AA5B0D23227071006BAF70 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		77AA5B1023227071006BAF70 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LoginViewController.storyboard; sourceTree = "<group>"; };
-		77AA5B1223227073006BAF70 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		77AA5B1523227073006BAF70 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		77AA5B1723227073006BAF70 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		77AA5B1C23227073006BAF70 /* CardchingTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CardchingTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -165,6 +169,7 @@
 			children = (
 				7732770023268D2900ED8476 /* DetailCardViewController.swift */,
 				7732770223268D3200ED8476 /* DetailCardViewController.storyboard */,
+				7732771023279CDE00ED8476 /* DetailCardViewModel.swift */,
 			);
 			path = Detail;
 			sourceTree = "<group>";
@@ -183,6 +188,7 @@
 			children = (
 				7732770A23268E5200ED8476 /* NewCardViewController.swift */,
 				7732770C23268E5B00ED8476 /* NewCardViewController.storyboard */,
+				773277122327B5E700ED8476 /* NewCardViewModel.swift */,
 			);
 			path = "Add Card";
 			sourceTree = "<group>";
@@ -272,7 +278,7 @@
 		77AA5B4123227E08006BAF70 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				77AA5B1223227073006BAF70 /* Assets.xcassets */,
+				7732770E23279BAE00ED8476 /* Assets.xcassets */,
 				77CB54D523228D1500AEEC94 /* fonts */,
 				77AA5B39232277D0006BAF70 /* fonts */,
 			);
@@ -444,10 +450,10 @@
 				77CB54D123228D0100AEEC94 /* Quicksand-Bold.ttf in Resources */,
 				77CB54D223228D0100AEEC94 /* Roboto-Medium.ttf in Resources */,
 				77CB54D323228D0100AEEC94 /* Quicksand-Light.ttf in Resources */,
+				7732770F23279BAE00ED8476 /* Assets.xcassets in Resources */,
 				77CB54D423228D0100AEEC94 /* OpenSans-Light.ttf in Resources */,
 				77AA5B1623227073006BAF70 /* LaunchScreen.storyboard in Resources */,
 				7732770D23268E5B00ED8476 /* NewCardViewController.storyboard in Resources */,
-				77AA5B1323227073006BAF70 /* Assets.xcassets in Resources */,
 				77AA5B1123227071006BAF70 /* LoginViewController.storyboard in Resources */,
 				77AA5B3A232277D0006BAF70 /* fonts in Resources */,
 			);
@@ -479,6 +485,7 @@
 				77CB54DA2326601400AEEC94 /* RegisterViewController.swift in Sources */,
 				773276F02326689C00ED8476 /* MainCoordinator.swift in Sources */,
 				773276F42326729D00ED8476 /* RegisterViewModel.swift in Sources */,
+				7732771123279CDE00ED8476 /* DetailCardViewModel.swift in Sources */,
 				7732770623268D8600ED8476 /* BarcodeViewController.swift in Sources */,
 				77AA5B0E23227071006BAF70 /* LoginViewController.swift in Sources */,
 				77CB54DC2326604A00AEEC94 /* LoginViewModel.swift in Sources */,
@@ -487,6 +494,7 @@
 				773276F723267A0600ED8476 /* CardsViewController.swift in Sources */,
 				77AA5B0C23227071006BAF70 /* AppDelegate.swift in Sources */,
 				773276FB23267A2800ED8476 /* CardsViewModel.swift in Sources */,
+				773277132327B5E700ED8476 /* NewCardViewModel.swift in Sources */,
 				7732770123268D2900ED8476 /* DetailCardViewController.swift in Sources */,
 				77AA5B4423227E64006BAF70 /* CustomFieldView.swift in Sources */,
 				773276EE2326686D00ED8476 /* Coordinator.swift in Sources */,

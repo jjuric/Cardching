@@ -29,7 +29,7 @@ class MainCoordinator: Coordinator {
         loginVC.viewModel = loginVM
         
         loginVM.onShowRegistration = { [weak self] in
-            self?.showRegistration()
+            let _ = self?.showCards()
         }
         loginVM.onLoggedIn = { [weak self] in
             let _ = self?.showCards()
@@ -64,10 +64,20 @@ class MainCoordinator: Coordinator {
             // show barcode vc
         }
         cardsVM.onShowCardDetails = { [weak self] card in
-            // show card details vc
+            let storyboard = UIStoryboard(name: "DetailCardViewController", bundle: nil)
+            let detailVC = storyboard.instantiateViewController(withIdentifier: "DetailCardViewController") as! DetailCardViewController
+            let detailVM = DetailCardViewModel()
+            
+            detailVC.viewModel = detailVM
+            detailVC.card = card
+            
+            self?.navigationController.pushViewController(detailVC, animated: true)
         }
         cardsVM.onAddNewCard = { [weak self] in
-            // show new card vc
+            let storyboard = UIStoryboard(name: "NewCardViewController", bundle: nil)
+            let newVC = storyboard.instantiateViewController(withIdentifier: "NewCardViewController") as! NewCardViewController
+            
+            self?.navigationController.pushViewController(newVC, animated: true)
         }
         
         navigationController.setViewControllers([cardsVC], animated: true)

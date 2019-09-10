@@ -9,6 +9,11 @@
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <array key="Quicksand-Medium.ttf">
+            <string>Quicksand-Medium</string>
+        </array>
+    </customFonts>
     <scenes>
         <!--New Card View Controller-->
         <scene sceneID="ngS-xw-Q1T">
@@ -17,13 +22,41 @@
                     <view key="view" contentMode="scaleToFill" id="Yd1-3a-Xep">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="addImagePlaceholder" translatesAutoresizingMaskIntoConstraints="NO" id="yPS-5l-qHR">
+                                <rect key="frame" x="147" y="65" width="120" height="120"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="120" id="XRd-6w-04a"/>
+                                    <constraint firstAttribute="height" constant="120" id="jlW-Of-DkG"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Dodaj karticu" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4Ut-rh-ynP">
+                                <rect key="frame" x="143.5" y="225" width="127" height="25"/>
+                                <fontDescription key="fontDescription" name="Quicksand-Medium" family="Quicksand Light" pointSize="20"/>
+                                <color key="textColor" red="0.5593864918" green="0.58049052950000002" blue="0.7670487761" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="yPS-5l-qHR" firstAttribute="top" secondItem="TxS-hD-QIZ" secondAttribute="top" constant="21" id="3O1-cQ-pP3"/>
+                            <constraint firstItem="yPS-5l-qHR" firstAttribute="centerX" secondItem="TxS-hD-QIZ" secondAttribute="centerX" id="9zF-En-g80"/>
+                            <constraint firstItem="4Ut-rh-ynP" firstAttribute="top" secondItem="yPS-5l-qHR" secondAttribute="bottom" constant="40" id="DD3-IP-NT6"/>
+                            <constraint firstItem="4Ut-rh-ynP" firstAttribute="centerX" secondItem="TxS-hD-QIZ" secondAttribute="centerX" id="VAw-XV-9iS"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="TxS-hD-QIZ"/>
                     </view>
+                    <connections>
+                        <outlet property="addCardLabel" destination="4Ut-rh-ynP" id="ou0-o8-8np"/>
+                        <outlet property="cardImage" destination="yPS-5l-qHR" id="Kdn-Lk-DbN"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="w40-on-mBu" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="109" y="113"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="addImagePlaceholder" width="120" height="120"/>
+    </resources>
 </document>

@@ -11,12 +11,17 @@ import UIKit
 enum FieldType {
     case email
     case password
+    case cardName
+    case expiration
+    case category
+    case barcode
 }
 
 class CustomFieldView: UIView {
     //MARK: - Callbacks
     var onEndEditing: (() -> Void)?
     var onBeganEditing: (() -> Void)?
+    var onShowCalendar: (() -> Void)?
     
     // MARK: - Views
     lazy var textField: TextField = {
@@ -47,6 +52,15 @@ class CustomFieldView: UIView {
         addSubview(button)
         return button
     }()
+    lazy var calendarButton: UIButton = {
+        let button = UIButton(type: .custom)
+        button.translatesAutoresizingMaskIntoConstraints = false
+        button.setImage(UIImage(named: "calendarButton"), for: .normal)
+        button.addTarget(self, action: #selector(showCalendarTapped), for: .touchUpInside)
+        button.imageView?.contentMode = .scaleAspectFill
+        addSubview(button)
+        return button
+    }()
     
     var nextInput: CustomFieldView? {
         didSet {
@@ -63,6 +77,12 @@ class CustomFieldView: UIView {
         fatalError("init(coder:) has not been implemented")
     }
     
+    var type: FieldType! {
+        didSet {
+            configureFor(type: type)
+        }
+    }
+    
     func configureFor(type: FieldType) {
         switch type {
         case .email:
@@ -74,6 +94,23 @@ class CustomFieldView: UIView {
             textField.isSecureTextEntry = true
             textField.placeholder = "Lozinka"
             addHideShowButton()
+        case .cardName:
+            textField.keyboardType = .default
+            textField.isSecureTextEntry = false
+            textField.placeholder = "Ime kartice"
+        case .expiration:
+            textField.keyboardType = .default
+            textField.isSecureTextEntry = false
+            textField.placeholder = "Vrijedi do"
+            addCalendarButton()
+        case .barcode:
+            textField.keyboardType = .default
+            textField.isSecureTextEntry = false
+            textField.placeholder = "Šifra barkoda"
+        case .category:
+            textField.keyboardType = .default
+            textField.isSecureTextEntry = false
+            textField.placeholder = "Kategorija (moda, hrana,...)"
         }
     }
     
@@ -86,12 +123,20 @@ class CustomFieldView: UIView {
         passwordButton.anchor(top: (topAnchor, 10), bottom: (bottomAnchor, 10), trailing: (trailingAnchor, 5), size: CGSize(width: 24, height: 16.3))
     }
     
+    private func addCalendarButton() {
+        calendarButton.anchor(top: (topAnchor, 10), bottom: (bottomAnchor, 10), trailing: (trailingAnchor, 5), size: CGSize(width: 30, height: 30))
+    }
+    
     @objc func showHideTapped() {
         textField.isSecureTextEntry = !textField.isSecureTextEntry
     }
     
     @objc func textFieldChanged() {
         onBeganEditing?()
+    }
+    
+    @objc func showCalendarTapped() {
+        onShowCalendar?()
     }
     
 }

@@ -16,20 +16,25 @@ class CardsViewModel {
         var name: String
         var barcode: String
         var image: UIImage?
+        var expiration: String
         
-        init(name: String, barcode: String, image: UIImage) {
+        init(name: String, barcode: String, expiration: String, image: UIImage) {
             self.name = name
             self.barcode = barcode
             self.image = image
+            self.expiration = expiration
         }
         
-        init(name: String, barcode: String) {
+        init(name: String, barcode: String, expiration: String) {
             self.name = name
             self.barcode = barcode
             self.image = UIImage(named: "cardPlaceholder")
+            self.expiration = expiration
         }
     }
-    var cards: [Card] = [Card(name: "Test kartica", barcode: "2131231231231")]
+    
+    
+    var cards: [Card] = [Card(name: "Test kartica", barcode: "2131231231231", expiration: "12/05/1996")]
     
     // MARK: - Callbacks
     var onShowBarcode: (() -> Void)?

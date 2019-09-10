@@ -9,6 +9,14 @@
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <array key="OpenSans-Regular.ttf">
+            <string>OpenSans-Regular</string>
+        </array>
+        <array key="Quicksand-Medium.ttf">
+            <string>Quicksand-Medium</string>
+        </array>
+    </customFonts>
     <scenes>
         <!--Detail Card View Controller-->
         <scene sceneID="0If-5Q-n4b">
@@ -17,13 +25,63 @@
                     <view key="view" contentMode="scaleToFill" id="BRf-O9-QhK">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yb1-OF-fxu">
+                                <rect key="frame" x="0.0" y="44" width="414" height="260"/>
+                                <subviews>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="cardPlaceholder" translatesAutoresizingMaskIntoConstraints="NO" id="xjt-P8-dAd">
+                                        <rect key="frame" x="147" y="21" width="120" height="120"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="120" id="3nI-e5-caV"/>
+                                            <constraint firstAttribute="width" constant="120" id="Zo2-6H-FPq"/>
+                                        </constraints>
+                                    </imageView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Kartica Kartica" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VuG-OF-wK2">
+                                        <rect key="frame" x="136.5" y="181" width="141" height="25"/>
+                                        <fontDescription key="fontDescription" name="Quicksand-Medium" family="Quicksand Light" pointSize="20"/>
+                                        <color key="textColor" red="0.5593864918" green="0.58049052950000002" blue="0.7670487761" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Vrijedi do: " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FQo-ya-kMr">
+                                        <rect key="frame" x="182.5" y="251" width="49.5" height="14"/>
+                                        <fontDescription key="fontDescription" name="OpenSans-Regular" family="Open Sans" pointSize="10"/>
+                                        <color key="textColor" red="0.35320621728897095" green="0.34115153551101685" blue="0.34099012613296509" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstItem="VuG-OF-wK2" firstAttribute="centerX" secondItem="yb1-OF-fxu" secondAttribute="centerX" id="3ov-Ug-bAk"/>
+                                    <constraint firstAttribute="height" constant="260" id="8z7-VG-obx"/>
+                                    <constraint firstItem="VuG-OF-wK2" firstAttribute="top" secondItem="xjt-P8-dAd" secondAttribute="bottom" constant="40" id="OZt-VS-r3P"/>
+                                    <constraint firstItem="FQo-ya-kMr" firstAttribute="centerX" secondItem="yb1-OF-fxu" secondAttribute="centerX" id="PVF-8o-QLv"/>
+                                    <constraint firstItem="xjt-P8-dAd" firstAttribute="top" secondItem="yb1-OF-fxu" secondAttribute="top" constant="21" id="u5c-OD-LGc"/>
+                                    <constraint firstItem="xjt-P8-dAd" firstAttribute="centerX" secondItem="yb1-OF-fxu" secondAttribute="centerX" id="wX9-Iv-7AD"/>
+                                    <constraint firstItem="FQo-ya-kMr" firstAttribute="top" secondItem="VuG-OF-wK2" secondAttribute="bottom" constant="45" id="wwn-cN-s9L"/>
+                                </constraints>
+                            </view>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="yb1-OF-fxu" firstAttribute="leading" secondItem="4eO-GP-dFc" secondAttribute="leading" id="6IF-Ym-RED"/>
+                            <constraint firstItem="yb1-OF-fxu" firstAttribute="top" secondItem="4eO-GP-dFc" secondAttribute="top" id="7kL-9i-6y2"/>
+                            <constraint firstItem="4eO-GP-dFc" firstAttribute="trailing" secondItem="yb1-OF-fxu" secondAttribute="trailing" id="AV1-zD-2tm"/>
+                            <constraint firstItem="yb1-OF-fxu" firstAttribute="centerX" secondItem="4eO-GP-dFc" secondAttribute="centerX" id="wL7-Ue-ezq"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="4eO-GP-dFc"/>
                     </view>
+                    <connections>
+                        <outlet property="cardExpiration" destination="FQo-ya-kMr" id="rko-ex-o7u"/>
+                        <outlet property="cardImage" destination="xjt-P8-dAd" id="GbD-Tg-rUF"/>
+                        <outlet property="cardName" destination="VuG-OF-wK2" id="Pav-rf-eWB"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9W1-7c-GnJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="101" y="104"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="cardPlaceholder" width="120" height="120"/>
+    </resources>
 </document>
