@@ -1,0 +1,6 @@
+framework module Pods_Cardching {
+  umbrella header "Pods-Cardching-umbrella.h"
+
+  export *
+  module * { export * }
+}

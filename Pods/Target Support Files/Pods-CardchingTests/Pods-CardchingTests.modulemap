@@ -1,0 +1,6 @@
+framework module Pods_CardchingTests {
+  umbrella header "Pods-CardchingTests-umbrella.h"
+
+  export *
+  module * { export * }
+}

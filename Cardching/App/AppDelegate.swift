@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Firebase
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -20,6 +21,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         window?.backgroundColor = .white
         window?.frame = UIScreen.main.bounds
         window?.rootViewController = coordinator.start()
+        
+        // Firebase setup
+        FirebaseApp.configure()
         return true
     }
 

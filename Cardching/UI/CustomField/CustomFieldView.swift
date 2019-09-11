@@ -34,6 +34,7 @@ class CustomFieldView: UIView {
         field.font = UIFont(name: "Roboto-Light", size: 14)
         field.autocapitalizationType = .none
         field.returnKeyType = .done
+        field.autocorrectionType = .no
         field.addTarget(self, action: #selector(textFieldChanged), for: .editingChanged)
         return field
     }()
