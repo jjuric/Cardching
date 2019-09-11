@@ -116,22 +116,23 @@ class LoginViewController: UIViewController {
             }
         }
         passwordField.onEndEditing = { [weak self] in
-            guard let password = self?.passwordField.textField.text else { return }
-            guard let passwordValid = self?.isPasswordValid(password) else { return }
-            if !passwordValid {
-                //show password error label
-                print("Password not valid")
+            if (self?.shouldEnableLogin())! {
+                self?.loginButton.isEnabled = true
+                self?.loginButton.backgroundColor = .appPurple
+            } else {
+                self?.loginButton.isEnabled = false
+                self?.loginButton.backgroundColor = .gray
             }
         }
         emailField.onEndEditing = { [weak self] in
-            guard let email = self?.emailField.textField.text else { return }
-            guard let emailValid = self?.isEmailValid(email) else { return }
-            if !emailValid {
-                //show email error label
-                print("E-mail not valid")
+            if (self?.shouldEnableLogin())! {
+                self?.loginButton.isEnabled = true
+                self?.loginButton.backgroundColor = .appPurple
+            } else {
+                self?.loginButton.isEnabled = false
+                self?.loginButton.backgroundColor = .gray
             }
         }
-        
     }
     
     @objc func loginTapped() {
@@ -144,22 +145,6 @@ class LoginViewController: UIViewController {
 }
 
 extension LoginViewController {
-    // Email and Password validation
-    func isEmailValid(_ email: String) -> Bool {
-        let emailRegEx = "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,64}"
-        
-        let emailPred = NSPredicate(format:"SELF MATCHES %@", emailRegEx)
-        return emailPred.evaluate(with: email)
-    }
-    
-    func isPasswordValid(_ password: String) -> Bool {
-        if password.count >= 6 {
-            return true
-        } else {
-            return false
-        }
-    }
-    
     private func shouldEnableLogin() -> Bool {
         if !(passwordField.textField.text?.isEmpty)!, !(emailField.textField.text?.isEmpty)! {
             return true

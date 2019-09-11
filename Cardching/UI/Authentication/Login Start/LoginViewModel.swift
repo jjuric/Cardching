@@ -8,7 +8,7 @@
 
 import Foundation
 
-class LoginViewModel {
+class LoginViewModel: AuthViewModel {
     
     //MARK: - Callbacks
     var onShowRegistration: (() -> Void)?

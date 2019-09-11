@@ -43,8 +43,7 @@ class RegisterViewController: UIViewController {
         btn.titleLabel?.textColor = .white
         btn.titleLabel?.font = UIFont(name: "Quicksand-Bold", size: 18)
         btn.layer.cornerRadius = 30
-        btn.backgroundColor = .gray
-        btn.isEnabled = false
+        btn.backgroundColor = .appPurple
         btn.addTarget(self, action: #selector(registerTapped), for: .touchUpInside)
         scrollView.addSubview(btn)
         return btn
@@ -52,12 +51,19 @@ class RegisterViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        addCallbacks()
         setupConstraints()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         self.navigationController?.isNavigationBarHidden = false
+    }
+    
+    private func addCallbacks() {
+        viewModel.onError = { [weak self] error in
+            print(error)
+        }
     }
     
     private func setupConstraints() {
@@ -72,6 +78,7 @@ class RegisterViewController: UIViewController {
     }
     
     @objc func registerTapped() {
-        // Firebase register user + check fields
+        guard let email = emailField.textField.text, let password = passwordField.textField.text, let repeatedPass = repeatPasswordField.textField.text, !email.isEmpty, !password.isEmpty, !repeatedPass.isEmpty else { print("dumbass"); return }
+        viewModel.register(with: email, password: password, repeatedPassword: repeatedPass)
     }
 }
