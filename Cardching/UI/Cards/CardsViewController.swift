@@ -12,6 +12,7 @@ class CardsViewController: UIViewController {
     //MARK: - Outlets
     @IBOutlet weak var headerView: UIView!
     @IBOutlet weak var cardsTableView: UITableView!
+    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     
     var viewModel: CardsViewModel!
     
@@ -19,12 +20,14 @@ class CardsViewController: UIViewController {
         super.viewDidLoad()
         self.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addCardTapped))
         self.navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Odjavi se", style: .plain, target: self, action: #selector(logOutTapped))
+        addCallbacks()
         setupTable()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         self.navigationController?.isNavigationBarHidden = false
+        viewModel.loadUserCards()
     }
     
     private func setupTable() {
@@ -39,8 +42,23 @@ class CardsViewController: UIViewController {
     }
     
     private func addCallbacks() {
-        viewModel.onError = { [weak self] in
-            self?.showAlert(title: "Ups!", message: "Došlo je do pogreške, probaj opet kasnije.")
+        viewModel.onError = { [weak self] error in
+            self?.showAlert(title: "Ups!", message: error)
+        }
+        viewModel.onStateChanged = { [weak self] state in
+            switch state {
+            case .initial:
+                self?.cardsTableView.reloadData()
+                self?.activityIndicator.stopAnimating()
+            case .loaded:
+                self?.cardsTableView.reloadData()
+                self?.activityIndicator.stopAnimating()
+            case .loading:
+                self?.activityIndicator.startAnimating()
+            case .empty:
+                //add empty view
+                self?.activityIndicator.stopAnimating()
+            }
         }
     }
     

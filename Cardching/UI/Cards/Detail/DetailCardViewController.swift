@@ -15,7 +15,7 @@ class DetailCardViewController: UIViewController {
     @IBOutlet weak var cardExpiration: UILabel!
     
     var viewModel: DetailCardViewModel!
-    var card: CardsViewModel.Card!
+    var card: Card!
     
     lazy var showBarcodeButton: UIButton = {
        let btn = UIButton(type: .custom)

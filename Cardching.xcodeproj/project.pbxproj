@@ -31,6 +31,7 @@
 		773277172328EE8500ED8476 /* AuthenticationCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 773277162328EE8500ED8476 /* AuthenticationCoordinator.swift */; };
 		773277192328F00F00ED8476 /* CardsCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 773277182328F00F00ED8476 /* CardsCoordinator.swift */; };
 		7732771C23290BDB00ED8476 /* AuthViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7732771B23290BDB00ED8476 /* AuthViewModel.swift */; };
+		7732771F232A735F00ED8476 /* Card.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7732771E232A735F00ED8476 /* Card.swift */; };
 		77AA5B0C23227071006BAF70 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77AA5B0B23227071006BAF70 /* AppDelegate.swift */; };
 		77AA5B0E23227071006BAF70 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77AA5B0D23227071006BAF70 /* LoginViewController.swift */; };
 		77AA5B1123227071006BAF70 /* LoginViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 77AA5B0F23227071006BAF70 /* LoginViewController.storyboard */; };
@@ -102,6 +103,7 @@
 		773277162328EE8500ED8476 /* AuthenticationCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationCoordinator.swift; sourceTree = "<group>"; };
 		773277182328F00F00ED8476 /* CardsCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardsCoordinator.swift; sourceTree = "<group>"; };
 		7732771B23290BDB00ED8476 /* AuthViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthViewModel.swift; sourceTree = "<group>"; };
+		7732771E232A735F00ED8476 /* Card.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Card.swift; sourceTree = "<group>"; };
 		77AA5B0823227071006BAF70 /* Cardching.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Cardching.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		77AA5B0B23227071006BAF70 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		77AA5B0D23227071006BAF70 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
@@ -228,6 +230,14 @@
 			path = Authentication;
 			sourceTree = "<group>";
 		};
+		7732771D232A734E00ED8476 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				7732771E232A735F00ED8476 /* Card.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		77AA5AFF23227071006BAF70 = {
 			isa = PBXGroup;
 			children = (
@@ -253,6 +263,7 @@
 		77AA5B0A23227071006BAF70 /* Cardching */ = {
 			isa = PBXGroup;
 			children = (
+				7732771D232A734E00ED8476 /* Model */,
 				77AA5B45232282A0006BAF70 /* Common */,
 				77AA5B4023227DF0006BAF70 /* App */,
 				77AA5B3E23227DBC006BAF70 /* UI */,
@@ -649,6 +660,7 @@
 				773276FB23267A2800ED8476 /* CardsViewModel.swift in Sources */,
 				773277132327B5E700ED8476 /* NewCardViewModel.swift in Sources */,
 				7732770123268D2900ED8476 /* DetailCardViewController.swift in Sources */,
+				7732771F232A735F00ED8476 /* Card.swift in Sources */,
 				7732771C23290BDB00ED8476 /* AuthViewModel.swift in Sources */,
 				77AA5B4423227E64006BAF70 /* CustomFieldView.swift in Sources */,
 				773276EE2326686D00ED8476 /* Coordinator.swift in Sources */,

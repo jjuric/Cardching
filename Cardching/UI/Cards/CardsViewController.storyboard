@@ -23,6 +23,10 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="qId-kp-bAd">
+                                <rect key="frame" x="197" y="443" width="20" height="20"/>
+                                <color key="color" red="0.28526294298919236" green="0.014607231242371373" blue="0.89803921568627454" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </activityIndicatorView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="n8y-ff-xQ9">
                                 <rect key="frame" x="0.0" y="44" width="414" height="240"/>
                                 <subviews>
@@ -62,11 +66,14 @@
                             <constraint firstItem="n8y-ff-xQ9" firstAttribute="top" secondItem="g4N-Da-tK8" secondAttribute="top" id="Pq4-Jq-57q"/>
                             <constraint firstAttribute="bottom" secondItem="bzg-wQ-4Dn" secondAttribute="bottom" id="PyU-kz-kfo"/>
                             <constraint firstItem="n8y-ff-xQ9" firstAttribute="leading" secondItem="g4N-Da-tK8" secondAttribute="leading" id="Rvc-TY-s8c"/>
+                            <constraint firstItem="qId-kp-bAd" firstAttribute="centerX" secondItem="g4N-Da-tK8" secondAttribute="centerX" id="cE0-wS-RHL"/>
                             <constraint firstItem="bzg-wQ-4Dn" firstAttribute="leading" secondItem="g4N-Da-tK8" secondAttribute="leading" id="dtH-qq-ddr"/>
+                            <constraint firstItem="qId-kp-bAd" firstAttribute="centerY" secondItem="g4N-Da-tK8" secondAttribute="centerY" id="g3e-LC-UHm"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="g4N-Da-tK8"/>
                     </view>
                     <connections>
+                        <outlet property="activityIndicator" destination="qId-kp-bAd" id="WlW-Wr-pI2"/>
                         <outlet property="cardsTableView" destination="bzg-wQ-4Dn" id="s3L-xq-mxv"/>
                         <outlet property="headerView" destination="n8y-ff-xQ9" id="89c-xa-KUY"/>
                     </connections>

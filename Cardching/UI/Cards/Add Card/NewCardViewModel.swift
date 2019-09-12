@@ -15,10 +15,11 @@ class NewCardViewModel {
     
     // MARK: - Callbacks
     var onError: (() -> Void)?
-    var onCardSaved: (() -> Void)?
+    var onCardSaved: ((Card) -> Void)?
     
     func saveCard(name: String, barcode: String, image: UIImage, expiration: String) {
         let db = Firestore.firestore()
+        let card = Card(name: name, barcode: barcode, expiration: expiration, image: image)
         guard let imageData = image.jpegData(compressionQuality: 0.5) else { return }
         guard let userUID = Auth.auth().currentUser?.uid else { return }
         db.collection("users/\(userUID)/cards").addDocument(data: [
@@ -30,7 +31,7 @@ class NewCardViewModel {
             if error != nil {
                 self?.onError?()
             } else {
-                self?.onCardSaved?()
+                self?.onCardSaved?(card)
             }
         }
     }

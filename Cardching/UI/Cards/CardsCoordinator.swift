@@ -43,7 +43,7 @@ class CardsCoordinator: Coordinator {
             let newVM = NewCardViewModel()
             
             newVC.viewModel = newVM
-            newVM.onCardSaved = { [weak self] in
+            newVM.onCardSaved = { [weak self] card in
                 self?.showAlert(title: "Uspjeh!", message: "Kartica je dodana u vašu kolekciju.", vc: newVC)
             }
             

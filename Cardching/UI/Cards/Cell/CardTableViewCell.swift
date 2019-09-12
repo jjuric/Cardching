@@ -11,7 +11,7 @@ import UIKit
 class CardTableViewCell: UITableViewCell {
     
     var viewModel: CardsViewModel!
-    var card: CardsViewModel.Card! {
+    var card: Card! {
         didSet {
             cardPicture.image = card.image
             cardName.text = card.name
