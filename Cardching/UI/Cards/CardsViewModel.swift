@@ -8,6 +8,7 @@
 
 import Foundation
 import UIKit
+import FirebaseAuth
 
 class CardsViewModel {
     
@@ -40,6 +41,8 @@ class CardsViewModel {
     var onShowBarcode: (() -> Void)?
     var onShowCardDetails: ((Card) -> Void)?
     var onAddNewCard: (() -> Void)?
+    var onError: (() -> Void)?
+    var onSignedOut: (() -> Void)?
     
     // MARK: - Methods
     func showBarcode() {
@@ -52,5 +55,14 @@ class CardsViewModel {
     
     func addNewCard() {
         onAddNewCard?()
+    }
+    
+    func logOutUser() {
+        do {
+            try Auth.auth().signOut()
+            onSignedOut?()
+        } catch {
+            onError?()
+        }
     }
 }

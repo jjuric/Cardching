@@ -84,8 +84,11 @@ class NewCardViewController: UIViewController {
     }
     
     private func addCallbacks() {
-        expirationField.onShowCalendar = {
-            print("show calendaererearar")
+        expirationField.onShowCalendar = { [weak self] in
+            self?.expirationField.textField.becomeFirstResponder()
+        }
+        viewModel.onError = { [weak self] in
+            self?.showAlert(title: "Ups!", message: "Došlo je do pogreške, probajte opet.")
         }
     }
     
@@ -103,14 +106,20 @@ class NewCardViewController: UIViewController {
         saveCardButton.anchor(top: (barcodeField.bottomAnchor, 60), size: CGSize(width: 315, height: 62))
         saveCardButton.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
     }
+    
+    private func showAlert(title: String, message: String) {
+        let ac = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        ac.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+        present(ac, animated: true)
+    }
 
     @objc func saveTapped() {
-        guard let name = cardNameField.textField.text, let barcode = barcodeField.textField.text, let expiration = expirationField.textField.text else { return }
+        guard let name = cardNameField.textField.text, let barcode = barcodeField.textField.text, let expiration = expirationField.textField.text, !name.isEmpty, !barcode.isEmpty, !expiration.isEmpty else { showAlert(title: "Pogreška!", message: "Popunite sva polja (sliku odajte ukoliko želite)."); return }
         var image = UIImage(named: "cardPlaceholder")
         if cardImage.image != UIImage(named: "addImagePlaceholder") {
             image = cardImage.image
         }
-        viewModel.saveCard(name: name, barcode: barcode, image: image, expiration: expiration)
+        viewModel.saveCard(name: name, barcode: barcode, image: image!, expiration: expiration)
     }
     
     @objc func addPicture() {

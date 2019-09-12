@@ -8,11 +8,31 @@
 
 import Foundation
 import UIKit
+import Firebase
+import FirebaseAuth
 
 class NewCardViewModel {
     
+    // MARK: - Callbacks
+    var onError: (() -> Void)?
+    var onCardSaved: (() -> Void)?
     
-    func saveCard(name: String, barcode: String, image: UIImage?, expiration: String) {
-        
+    func saveCard(name: String, barcode: String, image: UIImage, expiration: String) {
+        let db = Firestore.firestore()
+        guard let imageData = image.jpegData(compressionQuality: 0.5) else { return }
+        guard let userUID = Auth.auth().currentUser?.uid else { return }
+        db.collection("users/\(userUID)/cards").addDocument(data: [
+            "name" : name,
+            "barcode" : barcode,
+            "expiration" : expiration,
+            "imageData" : imageData
+        ]) { [weak self] (error) in
+            if error != nil {
+                self?.onError?()
+            } else {
+                self?.onCardSaved?()
+            }
+        }
     }
+    
 }

@@ -48,6 +48,17 @@ class RegisterViewController: UIViewController {
         scrollView.addSubview(btn)
         return btn
     }()
+    lazy var errorLabel: UILabel = {
+       let error = UILabel()
+        error.translatesAutoresizingMaskIntoConstraints = false
+        error.font = UIFont(name: "Roboto-Light", size: 12)
+        error.textColor = .redError
+        error.numberOfLines = 0
+        error.isHidden = true
+        error.textAlignment = .center
+        scrollView.addSubview(error)
+        return error
+    }()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -62,7 +73,8 @@ class RegisterViewController: UIViewController {
     
     private func addCallbacks() {
         viewModel.onError = { [weak self] error in
-            print(error)
+            self?.errorLabel.text = error
+            self?.errorLabel.isHidden = false
         }
     }
     
@@ -74,11 +86,17 @@ class RegisterViewController: UIViewController {
         emailField.anchor(top: (registerLabel.bottomAnchor, 40), leading: (view.leadingAnchor, 20), trailing: (view.trailingAnchor, 20), size: CGSize(width: 0, height: 52))
         passwordField.anchor(top: (emailField.bottomAnchor, 0), leading: (view.leadingAnchor, 20), trailing: (view.trailingAnchor, 20), size: CGSize(width: 0, height: 52))
         repeatPasswordField.anchor(top: (passwordField.bottomAnchor, 0), leading: (view.leadingAnchor, 20), trailing: (view.trailingAnchor, 20), size: CGSize(width: 0, height: 52))
+        errorLabel.anchor(top: (repeatPasswordField.bottomAnchor, 10), leading: (view.leadingAnchor, 20), trailing: (view.trailingAnchor, 20))
         registerButton.anchor(top: (repeatPasswordField.bottomAnchor, 90), leading: (view.leadingAnchor, 20), trailing: (view.trailingAnchor, 20), size: CGSize(width: 315, height: 62))
     }
     
     @objc func registerTapped() {
-        guard let email = emailField.textField.text, let password = passwordField.textField.text, let repeatedPass = repeatPasswordField.textField.text, !email.isEmpty, !password.isEmpty, !repeatedPass.isEmpty else { print("dumbass"); return }
+        errorLabel.isHidden = true
+        guard let email = emailField.textField.text, let password = passwordField.textField.text, let repeatedPass = repeatPasswordField.textField.text, !email.isEmpty, !password.isEmpty, !repeatedPass.isEmpty else {
+            errorLabel.text = "Popunite sva polja"
+            errorLabel.isHidden = false
+            return
+        }
         viewModel.register(with: email, password: password, repeatedPassword: repeatedPass)
     }
 }

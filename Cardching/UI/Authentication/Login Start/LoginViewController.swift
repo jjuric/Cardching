@@ -69,6 +69,17 @@ class LoginViewController: UIViewController {
         scrollView.addSubview(container)
         return container
     }()
+    lazy var errorLabel: UILabel = {
+        let error = UILabel()
+        error.translatesAutoresizingMaskIntoConstraints = false
+        error.font = UIFont(name: "Roboto-Light", size: 12)
+        error.textColor = .redError
+        error.numberOfLines = 0
+        error.isHidden = true
+        error.textAlignment = .center
+        scrollView.addSubview(error)
+        return error
+    }()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -88,6 +99,7 @@ class LoginViewController: UIViewController {
         // Views setup
         emailField.anchor(top: (loginLabel.bottomAnchor, 40), leading: (view.leadingAnchor, 20), trailing: (view.trailingAnchor, 20), size: CGSize(width: 0, height: 52))
         passwordField.anchor(top: (emailField.bottomAnchor, 0), leading: (view.leadingAnchor, 20), trailing: (view.trailingAnchor, 20), size: CGSize(width: 0, height: 52))
+        errorLabel.anchor(top: (passwordField.bottomAnchor, 10), leading: (view.leadingAnchor, 20), trailing: (view.trailingAnchor, 20))
         loginButton.anchor(top: (passwordField.bottomAnchor, 90), leading: (view.leadingAnchor, 20), trailing: (view.trailingAnchor, 20), size: CGSize(width: 315, height: 62))
         registerContainer.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
         registerContainer.topAnchor.constraint(equalTo: loginButton.bottomAnchor, constant: 53).isActive = true
@@ -98,45 +110,34 @@ class LoginViewController: UIViewController {
     
     private func addCallbacks() {
         emailField.onBeganEditing = { [weak self] in
-            if (self?.shouldEnableLogin())! {
-                self?.loginButton.isEnabled = true
-                self?.loginButton.backgroundColor = .appPurple
-            } else {
-                self?.loginButton.isEnabled = false
-                self?.loginButton.backgroundColor = .gray
-            }
+            self?.canEnableLogIn()
         }
         passwordField.onBeganEditing = { [weak self] in
-            if (self?.shouldEnableLogin())! {
-                self?.loginButton.isEnabled = true
-                self?.loginButton.backgroundColor = .appPurple
-            } else {
-                self?.loginButton.isEnabled = false
-                self?.loginButton.backgroundColor = .gray
-            }
+            self?.canEnableLogIn()
+
         }
         passwordField.onEndEditing = { [weak self] in
-            if (self?.shouldEnableLogin())! {
-                self?.loginButton.isEnabled = true
-                self?.loginButton.backgroundColor = .appPurple
-            } else {
-                self?.loginButton.isEnabled = false
-                self?.loginButton.backgroundColor = .gray
-            }
+            self?.canEnableLogIn()
+
         }
         emailField.onEndEditing = { [weak self] in
-            if (self?.shouldEnableLogin())! {
-                self?.loginButton.isEnabled = true
-                self?.loginButton.backgroundColor = .appPurple
-            } else {
-                self?.loginButton.isEnabled = false
-                self?.loginButton.backgroundColor = .gray
-            }
+            self?.canEnableLogIn()
+        }
+        viewModel.onErrorLogIn = { [weak self] error in
+            self?.errorLabel.text = error
+            self?.errorLabel.isHidden = false
         }
     }
     
     @objc func loginTapped() {
         // Check if email & password field are valid, if so try to login through Firebase
+        errorLabel.isHidden = true
+        guard let email = emailField.textField.text, let password = passwordField.textField.text, !email.isEmpty, !password.isEmpty else {
+            errorLabel.text = "Popunite sva polja"
+            errorLabel.isHidden = false
+            return
+        }
+        viewModel.login(withEmail: email, password: password)
     }
     
     @objc func registerTapped() {
@@ -145,11 +146,13 @@ class LoginViewController: UIViewController {
 }
 
 extension LoginViewController {
-    private func shouldEnableLogin() -> Bool {
+    private func canEnableLogIn(){
         if !(passwordField.textField.text?.isEmpty)!, !(emailField.textField.text?.isEmpty)! {
-            return true
+            loginButton.isEnabled = true
+            loginButton.backgroundColor = .appPurple
         } else {
-            return false
+            loginButton.isEnabled = false
+            loginButton.backgroundColor = .gray
         }
     }
 }

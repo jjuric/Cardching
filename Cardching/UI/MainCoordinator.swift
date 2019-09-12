@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import FirebaseAuth
 
 class MainCoordinator: Coordinator {
     
@@ -15,10 +16,19 @@ class MainCoordinator: Coordinator {
     private var childCoordinators: [Coordinator] = [AuthenticationCoordinator(), CardsCoordinator()]
     
     func start() -> UIViewController {
+        checkUserStatus()
         if isUserLoggedIn {
             return childCoordinators[1].start()
         } else {
             return childCoordinators[0].start()
+        }
+    }
+    
+    private func checkUserStatus() {
+        if let _ = Auth.auth().currentUser {
+            isUserLoggedIn = true
+        } else {
+            isUserLoggedIn = false
         }
     }
 }

@@ -17,16 +17,17 @@ class CardsViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addCardTapped))
+        self.navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Odjavi se", style: .plain, target: self, action: #selector(logOutTapped))
         setupTable()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         self.navigationController?.isNavigationBarHidden = false
-        self.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addCardTapped))
     }
     
-    func setupTable() {
+    private func setupTable() {
         cardsTableView.register(CardTableViewCell.self, forCellReuseIdentifier: "CardTableViewCell")
         cardsTableView.alwaysBounceVertical = false
         cardsTableView.alwaysBounceHorizontal = false
@@ -37,8 +38,24 @@ class CardsViewController: UIViewController {
         cardsTableView.tableFooterView = UIView()
     }
     
+    private func addCallbacks() {
+        viewModel.onError = { [weak self] in
+            self?.showAlert(title: "Ups!", message: "Došlo je do pogreške, probaj opet kasnije.")
+        }
+    }
+    
+    private func showAlert(title: String, message: String) {
+        let ac = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        ac.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+        present(ac, animated: true)
+    }
+    
     @objc func addCardTapped() {
         viewModel.addNewCard()
+    }
+    
+    @objc func logOutTapped() {
+        viewModel.logOutUser()
     }
 }
 

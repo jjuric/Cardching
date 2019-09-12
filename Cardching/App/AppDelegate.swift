@@ -16,14 +16,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var coordinator: MainCoordinator!
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
+        // Firebase setup
+        FirebaseApp.configure()
         // Coordinator setup
         coordinator = MainCoordinator()
         window?.backgroundColor = .white
         window?.frame = UIScreen.main.bounds
         window?.rootViewController = coordinator.start()
-        
-        // Firebase setup
-        FirebaseApp.configure()
         return true
     }
 
