@@ -10,6 +10,12 @@
 		057CBCE6DECD2D7F3F7BAE52 /* Pods_Cardching.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 70B155D50DE13BA426ECF969 /* Pods_Cardching.framework */; };
 		2077DC9E61AB8D2CFAFF8CB6 /* Pods_CardchingUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 000F7E3D6BD82E517416465F /* Pods_CardchingUITests.framework */; };
 		262345CCE8D29A1128757D76 /* Pods_CardchingTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E0C14C198728CCC1791244F3 /* Pods_CardchingTests.framework */; };
+		7496223A232D4D2400D998DA /* DeleteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74962239232D4D2400D998DA /* DeleteView.swift */; };
+		7496223C232D55D000D998DA /* EditView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7496223B232D55D000D998DA /* EditView.swift */; };
+		74E4E9CC232D279200CE4373 /* UIImageExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74E4E9CB232D279200CE4373 /* UIImageExtension.swift */; };
+		74E4E9CE232D3E7500CE4373 /* EmptyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74E4E9CD232D3E7500CE4373 /* EmptyView.swift */; };
+		74E4E9D0232D466B00CE4373 /* InternetCheck.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74E4E9CF232D466B00CE4373 /* InternetCheck.swift */; };
+		74E4E9D2232D47BA00CE4373 /* NoInternetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74E4E9D1232D47BA00CE4373 /* NoInternetView.swift */; };
 		773276EE2326686D00ED8476 /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 773276ED2326686D00ED8476 /* Coordinator.swift */; };
 		773276F02326689C00ED8476 /* MainCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 773276EF2326689B00ED8476 /* MainCoordinator.swift */; };
 		773276F223266DAD00ED8476 /* RegisterViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 773276F123266DAD00ED8476 /* RegisterViewController.storyboard */; };
@@ -82,6 +88,12 @@
 		70B155D50DE13BA426ECF969 /* Pods_Cardching.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Cardching.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		71BF3DA14E1AAE57EDA3A749 /* Pods-Cardching.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Cardching.release.xcconfig"; path = "Target Support Files/Pods-Cardching/Pods-Cardching.release.xcconfig"; sourceTree = "<group>"; };
 		72A4F6A21D1D8E68C84EA5CF /* Pods-Cardching.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Cardching.debug.xcconfig"; path = "Target Support Files/Pods-Cardching/Pods-Cardching.debug.xcconfig"; sourceTree = "<group>"; };
+		74962239232D4D2400D998DA /* DeleteView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeleteView.swift; sourceTree = "<group>"; };
+		7496223B232D55D000D998DA /* EditView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditView.swift; sourceTree = "<group>"; };
+		74E4E9CB232D279200CE4373 /* UIImageExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImageExtension.swift; sourceTree = "<group>"; };
+		74E4E9CD232D3E7500CE4373 /* EmptyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyView.swift; sourceTree = "<group>"; };
+		74E4E9CF232D466B00CE4373 /* InternetCheck.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InternetCheck.swift; sourceTree = "<group>"; };
+		74E4E9D1232D47BA00CE4373 /* NoInternetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoInternetView.swift; sourceTree = "<group>"; };
 		773276ED2326686D00ED8476 /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
 		773276EF2326689B00ED8476 /* MainCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainCoordinator.swift; sourceTree = "<group>"; };
 		773276F123266DAD00ED8476 /* RegisterViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = RegisterViewController.storyboard; sourceTree = "<group>"; };
@@ -167,6 +179,24 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		74962238232D4D0F00D998DA /* Modals */ = {
+			isa = PBXGroup;
+			children = (
+				74962239232D4D2400D998DA /* DeleteView.swift */,
+				7496223B232D55D000D998DA /* EditView.swift */,
+			);
+			path = Modals;
+			sourceTree = "<group>";
+		};
+		74E4E9D3232D47E700CE4373 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				74E4E9CD232D3E7500CE4373 /* EmptyView.swift */,
+				74E4E9D1232D47BA00CE4373 /* NoInternetView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
 		773276F5232679E500ED8476 /* Cards */ = {
 			isa = PBXGroup;
 			children = (
@@ -193,6 +223,7 @@
 		773276FF23268CE800ED8476 /* Detail */ = {
 			isa = PBXGroup;
 			children = (
+				74962238232D4D0F00D998DA /* Modals */,
 				7732770023268D2900ED8476 /* DetailCardViewController.swift */,
 				7732770223268D3200ED8476 /* DetailCardViewController.storyboard */,
 				7732771023279CDE00ED8476 /* DetailCardViewModel.swift */,
@@ -298,7 +329,6 @@
 			children = (
 				773276ED2326686D00ED8476 /* Coordinator.swift */,
 				773276EF2326689B00ED8476 /* MainCoordinator.swift */,
-				77AA5B4223227E2D006BAF70 /* CustomField */,
 				7732771A2329090300ED8476 /* Authentication */,
 				773276F5232679E500ED8476 /* Cards */,
 			);
@@ -344,9 +374,13 @@
 		77AA5B45232282A0006BAF70 /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				74E4E9D3232D47E700CE4373 /* Views */,
+				77AA5B4223227E2D006BAF70 /* CustomField */,
 				77AA5B46232282BA006BAF70 /* AnchorExtensions.swift */,
 				77AA5B48232284E4006BAF70 /* Colors.swift */,
 				77AA5B4A2322872B006BAF70 /* TextField.swift */,
+				74E4E9CB232D279200CE4373 /* UIImageExtension.swift */,
+				74E4E9CF232D466B00CE4373 /* InternetCheck.swift */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -663,8 +697,14 @@
 				7732771F232A735F00ED8476 /* Card.swift in Sources */,
 				7732771C23290BDB00ED8476 /* AuthViewModel.swift in Sources */,
 				77AA5B4423227E64006BAF70 /* CustomFieldView.swift in Sources */,
+				7496223A232D4D2400D998DA /* DeleteView.swift in Sources */,
+				74E4E9CE232D3E7500CE4373 /* EmptyView.swift in Sources */,
 				773276EE2326686D00ED8476 /* Coordinator.swift in Sources */,
 				773276FE23267E2400ED8476 /* CardTableViewCell.swift in Sources */,
+				7496223C232D55D000D998DA /* EditView.swift in Sources */,
+				74E4E9CC232D279200CE4373 /* UIImageExtension.swift in Sources */,
+				74E4E9D0232D466B00CE4373 /* InternetCheck.swift in Sources */,
+				74E4E9D2232D47BA00CE4373 /* NoInternetView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

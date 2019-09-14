@@ -17,9 +17,23 @@
                     <view key="view" contentMode="scaleToFill" id="chU-uS-ldt">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="7wh-Wk-Er1">
+                                <rect key="frame" x="50" y="104" width="334" height="698"/>
+                            </imageView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="hPi-Ua-ngc" firstAttribute="trailing" secondItem="7wh-Wk-Er1" secondAttribute="trailing" constant="30" id="8YT-fI-oes"/>
+                            <constraint firstItem="hPi-Ua-ngc" firstAttribute="bottom" secondItem="7wh-Wk-Er1" secondAttribute="bottom" constant="60" id="SPt-pN-LfW"/>
+                            <constraint firstItem="7wh-Wk-Er1" firstAttribute="leading" secondItem="hPi-Ua-ngc" secondAttribute="leading" constant="50" id="hHb-ub-Sik"/>
+                            <constraint firstItem="7wh-Wk-Er1" firstAttribute="top" secondItem="hPi-Ua-ngc" secondAttribute="top" constant="60" id="w8w-Qy-mXs"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="hPi-Ua-ngc"/>
                     </view>
+                    <connections>
+                        <outlet property="barcodeImageView" destination="7wh-Wk-Er1" id="Bmz-Pl-FxR"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="eOi-RD-0gY" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

@@ -20,9 +20,10 @@ class NewCardViewModel {
     func saveCard(name: String, barcode: String, image: UIImage, expiration: String) {
         let db = Firestore.firestore()
         let card = Card(name: name, barcode: barcode, expiration: expiration, image: image)
+        let cardID = card.name
         guard let imageData = image.jpegData(compressionQuality: 0.5) else { return }
         guard let userUID = Auth.auth().currentUser?.uid else { return }
-        db.collection("users/\(userUID)/cards").addDocument(data: [
+        db.collection("users/\(userUID)/cards").document("\(cardID)").setData([
             "name" : name,
             "barcode" : barcode,
             "expiration" : expiration,

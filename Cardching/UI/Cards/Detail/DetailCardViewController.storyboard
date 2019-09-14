@@ -60,12 +60,21 @@
                                     <constraint firstItem="FQo-ya-kMr" firstAttribute="top" secondItem="VuG-OF-wK2" secondAttribute="bottom" constant="45" id="wwn-cN-s9L"/>
                                 </constraints>
                             </view>
+                            <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fYE-zC-h2m">
+                                <rect key="frame" x="0.0" y="44" width="414" height="852"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <viewLayoutGuide key="safeArea" id="ist-gW-SVw"/>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
+                            <constraint firstItem="fYE-zC-h2m" firstAttribute="leading" secondItem="4eO-GP-dFc" secondAttribute="leading" id="3Bl-Ss-nZ4"/>
                             <constraint firstItem="yb1-OF-fxu" firstAttribute="leading" secondItem="4eO-GP-dFc" secondAttribute="leading" id="6IF-Ym-RED"/>
                             <constraint firstItem="yb1-OF-fxu" firstAttribute="top" secondItem="4eO-GP-dFc" secondAttribute="top" id="7kL-9i-6y2"/>
                             <constraint firstItem="4eO-GP-dFc" firstAttribute="trailing" secondItem="yb1-OF-fxu" secondAttribute="trailing" id="AV1-zD-2tm"/>
+                            <constraint firstItem="4eO-GP-dFc" firstAttribute="trailing" secondItem="fYE-zC-h2m" secondAttribute="trailing" id="Cpv-iS-frS"/>
+                            <constraint firstAttribute="bottom" secondItem="fYE-zC-h2m" secondAttribute="bottom" id="EFT-lg-ald"/>
+                            <constraint firstItem="fYE-zC-h2m" firstAttribute="top" secondItem="4eO-GP-dFc" secondAttribute="top" id="RWD-tj-0dM"/>
                             <constraint firstItem="yb1-OF-fxu" firstAttribute="centerX" secondItem="4eO-GP-dFc" secondAttribute="centerX" id="wL7-Ue-ezq"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="4eO-GP-dFc"/>
@@ -74,6 +83,7 @@
                         <outlet property="cardExpiration" destination="FQo-ya-kMr" id="rko-ex-o7u"/>
                         <outlet property="cardImage" destination="xjt-P8-dAd" id="GbD-Tg-rUF"/>
                         <outlet property="cardName" destination="VuG-OF-wK2" id="Pav-rf-eWB"/>
+                        <outlet property="viewMask" destination="fYE-zC-h2m" id="bIG-er-bZb"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9W1-7c-GnJ" userLabel="First Responder" sceneMemberID="firstResponder"/>

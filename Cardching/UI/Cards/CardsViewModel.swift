@@ -19,11 +19,11 @@ class CardsViewModel {
     }
     
     // MARK: - Variables
-    var cards: [Card] = [Card(name: "myCard", barcode: "12342691337", expiration: "12/05/1996")]
+    var cards: [Card] = []
     
     // MARK: - Callbacks
-    var onShowBarcode: (() -> Void)?
-    var onShowCardDetails: ((Card) -> Void)?
+    var onShowBarcode: ((String) -> Void)?
+    var onShowCardDetails: ((Int) -> Void)?
     var onAddNewCard: (() -> Void)?
     var onError: ((String) -> Void)?
     var onSignedOut: (() -> Void)?
@@ -35,6 +35,7 @@ class CardsViewModel {
         case loading
         case loaded
         case empty
+        case noInternet
     }
     var state: State = .initial {
         didSet {
@@ -43,12 +44,12 @@ class CardsViewModel {
     }
     
     // MARK: - Methods
-    func showBarcode() {
-        onShowBarcode?()
+    func showBarcode(_ barcode: String) {
+        onShowBarcode?(barcode)
     }
     
     func showCardDetails(for cardIndex: Int) {
-        onShowCardDetails?(cards[cardIndex])
+        onShowCardDetails?(cardIndex)
     }
     
     func addNewCard() {
@@ -68,6 +69,7 @@ class CardsViewModel {
         guard let userUID = Auth.auth().currentUser?.uid else { return }
         let db = Firestore.firestore()
         state = .loading
+        if !Reachability.isConnectedToNetwork() { state = .noInternet; return}
         let cardCollection = db.collection("users").document("\(userUID)").collection("cards")
         
         cardCollection.getDocuments { [weak self] (snapshot, error) in

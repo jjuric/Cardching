@@ -24,16 +24,28 @@ class CardsCoordinator: Coordinator {
         
         cardsVC.viewModel = cardsVM
         
-        cardsVM.onShowBarcode = { [weak self] in
-            // show barcode vc
+        cardsVM.onShowBarcode = { [weak self] barcode in
+            let storyboard = UIStoryboard(name: "BarcodeViewController", bundle: nil)
+            let barcodeVC = storyboard.instantiateViewController(withIdentifier: "BarcodeViewController") as! BarcodeViewController
+            barcodeVC.barcode = barcode
+            
+            self?.navigationController.pushViewController(barcodeVC, animated: true)
         }
-        cardsVM.onShowCardDetails = { [weak self] card in
+        cardsVM.onShowCardDetails = { [weak self] cardIndex in
+            let card = cardsVM.cards[cardIndex]
             let storyboard = UIStoryboard(name: "DetailCardViewController", bundle: nil)
             let detailVC = storyboard.instantiateViewController(withIdentifier: "DetailCardViewController") as! DetailCardViewController
             let detailVM = DetailCardViewModel()
             
             detailVC.viewModel = detailVM
             detailVC.card = card
+            detailVM.onShowBarcode = { [weak self] barcode in
+                let storyboard = UIStoryboard(name: "BarcodeViewController", bundle: nil)
+                let barcodeVC = storyboard.instantiateViewController(withIdentifier: "BarcodeViewController") as! BarcodeViewController
+                barcodeVC.barcode = barcode
+                
+                self?.navigationController.pushViewController(barcodeVC, animated: true)
+            }
             
             self?.navigationController.pushViewController(detailVC, animated: true)
         }

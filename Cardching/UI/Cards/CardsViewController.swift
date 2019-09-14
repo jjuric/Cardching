@@ -14,6 +14,22 @@ class CardsViewController: UIViewController {
     @IBOutlet weak var cardsTableView: UITableView!
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     
+    lazy var emptyView: EmptyView = {
+        let empty = EmptyView()
+        empty.translatesAutoresizingMaskIntoConstraints = false
+        view.addSubview(empty)
+        empty.anchor(top: (view.safeAreaLayoutGuide.topAnchor, 0), bottom: (view.safeAreaLayoutGuide.bottomAnchor, 0), leading: (view.safeAreaLayoutGuide.leadingAnchor, 0), trailing: (view.safeAreaLayoutGuide.trailingAnchor, 0))
+        return empty
+    }()
+    lazy var noInternetView: NoInternetView = {
+        let internet = NoInternetView()
+        internet.translatesAutoresizingMaskIntoConstraints = false
+        view.addSubview(internet)
+        internet.anchor(top: (view.safeAreaLayoutGuide.topAnchor, 0), bottom: (view.safeAreaLayoutGuide.bottomAnchor, 0), leading: (view.safeAreaLayoutGuide.leadingAnchor, 0), trailing: (view.safeAreaLayoutGuide.trailingAnchor, 0))
+        internet.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(noInternetTapped)))
+        return internet
+    }()
+    
     var viewModel: CardsViewModel!
     
     override func viewDidLoad() {
@@ -48,16 +64,28 @@ class CardsViewController: UIViewController {
         viewModel.onStateChanged = { [weak self] state in
             switch state {
             case .initial:
+                self?.emptyView.isHidden = true
+                self?.noInternetView.isHidden = true
                 self?.cardsTableView.reloadData()
                 self?.activityIndicator.stopAnimating()
             case .loaded:
+                self?.emptyView.isHidden = true
+                self?.noInternetView.isHidden = true
                 self?.cardsTableView.reloadData()
                 self?.activityIndicator.stopAnimating()
             case .loading:
                 self?.activityIndicator.startAnimating()
+                self?.emptyView.isHidden = true
+                self?.noInternetView.isHidden = true
             case .empty:
                 //add empty view
                 self?.activityIndicator.stopAnimating()
+                self?.emptyView.isHidden = false
+                self?.noInternetView.isHidden = true
+            case .noInternet:
+                self?.activityIndicator.stopAnimating()
+                self?.emptyView.isHidden = true
+                self?.noInternetView.isHidden = false
             }
         }
     }
@@ -74,6 +102,10 @@ class CardsViewController: UIViewController {
     
     @objc func logOutTapped() {
         viewModel.logOutUser()
+    }
+    
+    @objc func noInternetTapped() {
+        viewModel.loadUserCards()
     }
 }
 

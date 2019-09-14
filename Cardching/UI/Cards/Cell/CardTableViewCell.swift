@@ -22,10 +22,11 @@ class CardTableViewCell: UITableViewCell {
     lazy var cardPicture: UIImageView = {
        let imgView = UIImageView(frame: CGRect(x: 0, y: 0, width: 70, height: 70))
         imgView.translatesAutoresizingMaskIntoConstraints = false
+        imgView.layer.cornerRadius = imgView.frame.width / 2
         imgView.contentMode = .scaleAspectFill
         imgView.image = UIImage(named: "cardPlaceholder")
-        imgView.layer.cornerRadius = imgView.frame.width / 2
-        cardInfoStack.addSubview(imgView)
+        imgView.clipsToBounds = true
+        addSubview(imgView)
         return imgView
     }()
     lazy var cardName: UILabel = {
@@ -33,7 +34,7 @@ class CardTableViewCell: UITableViewCell {
         name.translatesAutoresizingMaskIntoConstraints = false
         name.font = UIFont(name: "Roboto-Medium", size: 15)
         name.textColor = .appPurple
-        addSubview(name)
+        cardInfoStack.addSubview(name)
         return name
     }()
     lazy var cardBarcode: UILabel = {
@@ -77,13 +78,15 @@ class CardTableViewCell: UITableViewCell {
         cardPicture.centerYAnchor.constraint(equalTo: centerYAnchor).isActive = true
         cardPicture.anchor(leading: (leadingAnchor, 25),  size: CGSize(width: 70, height: 70))
         cardInfoStack.centerYAnchor.constraint(equalTo: centerYAnchor).isActive = true
-        cardInfoStack.anchor(leading: (cardPicture.trailingAnchor, 34), size: CGSize(width: 0, height: 41))
+        cardInfoStack.anchor(leading: (cardPicture.trailingAnchor, 34), trailing: (barcodeButton.leadingAnchor, 2), size: CGSize(width: 0, height: 41))
         cardName.anchor(top: (cardInfoStack.topAnchor, 0), bottom: (cardBarcode.topAnchor, 0), leading: (cardInfoStack.leadingAnchor, 0), trailing: (cardInfoStack.trailingAnchor, 0), size: CGSize(width: 0, height: 20))
         cardBarcode.anchor(top: (cardName.bottomAnchor, 0), bottom: (cardInfoStack.bottomAnchor, 0), leading: (cardInfoStack.leadingAnchor, 0), trailing: (cardInfoStack.trailingAnchor, 0), size: CGSize(width: 0, height: 16))
+        barcodeButton.centerYAnchor.constraint(equalTo: centerYAnchor).isActive = true
+        barcodeButton.anchor(trailing: (trailingAnchor, 25), size: CGSize(width: 30, height: 30))
     }
     
     @objc func showBarcodeTapped() {
-        viewModel.showBarcode()
+        viewModel.showBarcode(card.barcode)
     }
     
 }
