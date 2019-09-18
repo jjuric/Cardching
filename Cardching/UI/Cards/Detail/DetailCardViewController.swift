@@ -79,10 +79,17 @@ class DetailCardViewController: UIViewController {
         edit.confirmButton.addTarget(self, action: #selector(confirmEditTapped), for: .touchUpInside)
         edit.cancelButton.addTarget(self, action: #selector(cancelEditTapped), for: .touchUpInside)
         edit.cardImage.image = card.image
+        edit.cardImage.isUserInteractionEnabled = true
+        edit.cardImage.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(editImageTapped)))
         view.addSubview(edit)
         return edit
     }()
-    
+    lazy var imagePicker: UIImagePickerController = {
+        let picker = UIImagePickerController()
+        picker.delegate = self
+        picker.allowsEditing = true
+        return picker
+    }()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -174,7 +181,7 @@ class DetailCardViewController: UIViewController {
         if let barcode = editView.barcodeTextField.text, !barcode.isEmpty {
             card.barcode = barcode
         }
-        if let image = editView.cardImage.image {
+        if let image = editView.cardImage.image, image != card.image {
             card.image = image
         }
         
@@ -187,6 +194,10 @@ class DetailCardViewController: UIViewController {
             self?.editViewConstraint.constant = 1000
             self?.view.layoutIfNeeded()
         }
+    }
+    
+    @objc func editImageTapped() {
+        present(imagePicker, animated: true)
     }
 }
 
@@ -204,5 +215,14 @@ extension DetailCardViewController {
             self?.navigationController?.popToRootViewController(animated: true)
         }))
         present(ac, animated: true)
+    }
+}
+
+extension DetailCardViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        guard let image = info[.editedImage] as? UIImage else { return }
+        cardImage.image = image
+        editView.cardImage.image = image
+        dismiss(animated: true, completion: nil)
     }
 }

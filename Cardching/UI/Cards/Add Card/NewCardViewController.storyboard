@@ -23,32 +23,44 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="addImagePlaceholder" translatesAutoresizingMaskIntoConstraints="NO" id="yPS-5l-qHR">
-                                <rect key="frame" x="147" y="65" width="120" height="120"/>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="oQk-4o-Vt0">
+                                <rect key="frame" x="0.0" y="44" width="414" height="818"/>
+                                <subviews>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="addImagePlaceholder" translatesAutoresizingMaskIntoConstraints="NO" id="yPS-5l-qHR">
+                                        <rect key="frame" x="147" y="21" width="120" height="120"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="120" id="XRd-6w-04a"/>
+                                            <constraint firstAttribute="height" constant="120" id="jlW-Of-DkG"/>
+                                        </constraints>
+                                    </imageView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Dodaj karticu" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4Ut-rh-ynP">
+                                        <rect key="frame" x="143.5" y="181" width="127" height="25"/>
+                                        <fontDescription key="fontDescription" name="Quicksand-Medium" family="Quicksand Light" pointSize="20"/>
+                                        <color key="textColor" red="0.5593864918" green="0.58049052950000002" blue="0.7670487761" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="120" id="XRd-6w-04a"/>
-                                    <constraint firstAttribute="height" constant="120" id="jlW-Of-DkG"/>
+                                    <constraint firstItem="yPS-5l-qHR" firstAttribute="top" secondItem="oQk-4o-Vt0" secondAttribute="top" constant="21" id="94Q-vA-2S2"/>
+                                    <constraint firstItem="4Ut-rh-ynP" firstAttribute="top" secondItem="yPS-5l-qHR" secondAttribute="bottom" constant="40" id="OYP-vM-CNT"/>
+                                    <constraint firstItem="4Ut-rh-ynP" firstAttribute="centerX" secondItem="oQk-4o-Vt0" secondAttribute="centerX" id="RN5-D5-d2R"/>
+                                    <constraint firstItem="yPS-5l-qHR" firstAttribute="centerX" secondItem="oQk-4o-Vt0" secondAttribute="centerX" id="aMv-sQ-Xkf"/>
                                 </constraints>
-                            </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Dodaj karticu" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4Ut-rh-ynP">
-                                <rect key="frame" x="143.5" y="225" width="127" height="25"/>
-                                <fontDescription key="fontDescription" name="Quicksand-Medium" family="Quicksand Light" pointSize="20"/>
-                                <color key="textColor" red="0.5593864918" green="0.58049052950000002" blue="0.7670487761" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                            </scrollView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="yPS-5l-qHR" firstAttribute="top" secondItem="TxS-hD-QIZ" secondAttribute="top" constant="21" id="3O1-cQ-pP3"/>
-                            <constraint firstItem="yPS-5l-qHR" firstAttribute="centerX" secondItem="TxS-hD-QIZ" secondAttribute="centerX" id="9zF-En-g80"/>
-                            <constraint firstItem="4Ut-rh-ynP" firstAttribute="top" secondItem="yPS-5l-qHR" secondAttribute="bottom" constant="40" id="DD3-IP-NT6"/>
-                            <constraint firstItem="4Ut-rh-ynP" firstAttribute="centerX" secondItem="TxS-hD-QIZ" secondAttribute="centerX" id="VAw-XV-9iS"/>
+                            <constraint firstItem="oQk-4o-Vt0" firstAttribute="top" secondItem="TxS-hD-QIZ" secondAttribute="top" id="4Ww-3y-JEF"/>
+                            <constraint firstItem="TxS-hD-QIZ" firstAttribute="trailing" secondItem="oQk-4o-Vt0" secondAttribute="trailing" id="Pp9-U7-qWV"/>
+                            <constraint firstItem="TxS-hD-QIZ" firstAttribute="bottom" secondItem="oQk-4o-Vt0" secondAttribute="bottom" id="aAV-7D-eZx"/>
+                            <constraint firstItem="oQk-4o-Vt0" firstAttribute="leading" secondItem="TxS-hD-QIZ" secondAttribute="leading" id="ggb-ju-lua"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="TxS-hD-QIZ"/>
                     </view>
                     <connections>
                         <outlet property="addCardLabel" destination="4Ut-rh-ynP" id="ou0-o8-8np"/>
                         <outlet property="cardImage" destination="yPS-5l-qHR" id="Kdn-Lk-DbN"/>
+                        <outlet property="scrollView" destination="oQk-4o-Vt0" id="xPt-2j-mRr"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="w40-on-mBu" userLabel="First Responder" sceneMemberID="firstResponder"/>

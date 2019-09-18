@@ -10,6 +10,7 @@ import UIKit
 
 class NewCardViewController: UIViewController {
 
+    @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var addCardLabel: UILabel!
     @IBOutlet weak var cardImage: UIImageView!
     
@@ -39,7 +40,7 @@ class NewCardViewController: UIViewController {
        let field = CustomFieldView()
         field.translatesAutoresizingMaskIntoConstraints = false
         field.configureFor(type: .cardName)
-        view.addSubview(field)
+        scrollView.addSubview(field)
         return field
     }()
     lazy var expirationField: CustomFieldView = {
@@ -48,21 +49,21 @@ class NewCardViewController: UIViewController {
         field.configureFor(type: .expiration)
         field.textField.inputAccessoryView = pickerToolbar
         field.textField.inputView = datePicker
-        view.addSubview(field)
+        scrollView.addSubview(field)
         return field
     }()
     lazy var categoryField: CustomFieldView = {
         let field = CustomFieldView()
         field.translatesAutoresizingMaskIntoConstraints = false
         field.configureFor(type: .category)
-        view.addSubview(field)
+        scrollView.addSubview(field)
         return field
     }()
     lazy var barcodeField: CustomFieldView = {
         let field = CustomFieldView()
         field.translatesAutoresizingMaskIntoConstraints = false
         field.configureFor(type: .barcode)
-        view.addSubview(field)
+        scrollView.addSubview(field)
         return field
     }()
     lazy var saveCardButton: UIButton = {
@@ -72,7 +73,7 @@ class NewCardViewController: UIViewController {
         btn.backgroundColor = .appPurple
         btn.layer.cornerRadius = 30
         btn.addTarget(self, action: #selector(saveTapped), for: .touchUpInside)
-        view.addSubview(btn)
+        scrollView.addSubview(btn)
         return btn
     }()
     
@@ -99,6 +100,7 @@ class NewCardViewController: UIViewController {
     }
     
     private func setupConstraints() {
+        scrollView.contentSize.height = 630
         cardNameField.anchor(top: (addCardLabel.bottomAnchor, 25), leading: (view.leadingAnchor, 20), trailing: (view.trailingAnchor, 20), size: CGSize(width: 0, height: 52))
         expirationField.anchor(top: (cardNameField.bottomAnchor, 0), leading: (view.leadingAnchor, 20), trailing: (view.trailingAnchor, 20), size: CGSize(width: 0, height: 52))
         categoryField.anchor(top: (expirationField.bottomAnchor, 0), leading: (view.leadingAnchor, 20), trailing: (view.trailingAnchor, 20), size: CGSize(width: 0, height: 52))
